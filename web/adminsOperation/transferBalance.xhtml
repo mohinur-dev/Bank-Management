@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <head>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous"></link>
+        <title>Transfer Balance</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    </head>
+    <body>
+        <div class="container w-50 p-2">
+            <h:form class="border border-secondary p-5">
+                <div>
+                    <h1>Transfer Balance </h1>
+                </div>
+                <div>
+                    <div class="mt-1">
+                        <h:outputLabel styleClass="col-form-label">Transaction Purpose :</h:outputLabel>
+                        <h:selectOneMenu styleClass="form-select" value="#{fundTransfer.transPurpose}">
+                            <f:selectItem itemLabel="Business" itemValue="Business"/>
+                            <f:selectItem itemLabel="Lone" itemValue="Lone"/>
+                            <f:selectItem itemLabel="Payment" itemValue="Payment"/>
+                            <f:selectItem itemLabel="Bonus" itemValue="Bonus"/>
+                        </h:selectOneMenu>
+                    </div>
+                </div>
+
+                <div class="row  mt-3">
+
+                    <div class="col">
+                        <center><h3>Transfer From...</h3></center>
+                        <div class="mt-1">
+                            <h:outputLabel styleClass="col-form-label">Account Type :</h:outputLabel>
+                            <h:selectOneMenu styleClass="form-select" value="#{fundTransfer.accountTypeFrom}">
+                                <f:selectItem itemLabel="Saving Account" itemValue="Saving Account"/>
+                                <f:selectItem itemLabel="Current Account" itemValue="Current Account"/>
+                            </h:selectOneMenu>
+                        </div>
+                        <div class="mt-1">
+                            <h:outputLabel styleClass="col-form-label">Transaction Type :</h:outputLabel>
+                            <h:selectOneMenu styleClass="form-select" value="#{fundTransfer.transTypeForm}">
+                                <f:selectItem itemLabel="Fund Transfer" itemValue="Found Transfer"/>
+                            </h:selectOneMenu>
+                        </div>
+                        <div>
+                            <h:outputLabel class="form-label">Account Number : </h:outputLabel>
+                            <h:inputText class="form-control" value="${fundTransfer.transFromAcc}"> </h:inputText>                   
+                        </div>
+                    </div>
+
+                    <div class="col">
+                        <div class="">
+                            <center><h3>Transfer To...</h3></center> 
+                        </div>
+                        <div class="mt-1">
+                            <h:outputLabel styleClass="col-form-label">Account Type :</h:outputLabel>
+                            <h:selectOneMenu styleClass="form-select" value="#{fundTransfer.accountTypeTo}">
+                                <f:selectItem itemLabel="Saving Account" itemValue="Saving Account"/>
+                                <f:selectItem itemLabel="Current Account" itemValue="Current Account"/>
+                            </h:selectOneMenu>
+                        </div>
+                        <div class="mt-1">
+                            <h:outputLabel styleClass="col-form-label">Transaction Type :</h:outputLabel>
+                            <h:selectOneMenu styleClass="form-select" value="#{fundTransfer.transTypeTo}">
+                                <f:selectItem itemLabel="Fund Receive" itemValue="Fund Receive"/>
+                            </h:selectOneMenu>
+                        </div>
+                        <div>
+                            <h:outputLabel class="form-label">Account Number : </h:outputLabel>
+                            <h:inputText class="form-control" value="${fundTransfer.transToAcc}"> </h:inputText>                   
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <h:outputLabel class="form-label">Transfer Amount : </h:outputLabel>
+                    <h:inputText class="form-control" value="${fundTransfer.transAmount}"> </h:inputText>                   
+                </div>
+
+                <div class="d-grid mt-3">
+                    <h:commandButton value="Transfer Balance" class="btn btn-outline-success" action="${fundTransfer.transfer()}"> </h:commandButton>
+                </div>
+
+                <div class="d-grid mt-3">
+                    <h:commandButton value="Back" class="btn btn-outline-success" action="${admin.adminsHome()}"> </h:commandButton>
+                </div>
+
+            </h:form>
+        </div>
+    </body>
+</html>

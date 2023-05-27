@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous"></link>
+        <title>AdminLogIn</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    </head>
+    <body>
+        <div class="container w-50 p-2">
+            <h:form class="border border-secondary p-5"
+                    xmlns:h="http://xmlns.jcp.org/jsf/html">
+                <div>
+                    <h1>Admin's Login page : </h1>
+                </div>
+                <div>
+                    <h:outputLabel class="form-label">Username/Email : </h:outputLabel>
+                    <h:inputText class="form-control"> </h:inputText>                   
+                </div>
+                <div>
+                    <h:outputLabel class="form-label">Password : </h:outputLabel>
+                    <h:inputText class="form-control"> </h:inputText>                   
+                </div>
+
+                <div class="d-grid mt-3">
+                    <h:commandButton value="Log In" class="btn btn-outline-success" action="#{admin.adminsHome()}"> </h:commandButton>
+                </div>
+                <div class="d-grid mt-3">
+                    <h:commandButton value="Back to Homepage" class="btn btn-outline-success" action="#{admin.adminBack2Home()}"> </h:commandButton>
+                </div>
+
+            </h:form>
+        </div>
+    </body>
+</html>
